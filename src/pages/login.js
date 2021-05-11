@@ -2,7 +2,8 @@ import { Typography } from "@material-ui/core";
 import React from "react";
 import LoginCard from "../components/loginCard";
 
-export default function TabsWrappedLabel() {
+export default class LoginPage extends React.Component {
+  render(){
   return (
     <div style={{}}>
       <div
@@ -39,9 +40,11 @@ export default function TabsWrappedLabel() {
       <div style={{
           backgroundImage: "linear-gradient(180deg, #59b860, #01ab98)",
           height: "60vh"}}>
-         
-          <LoginCard />
+            
+          <LoginCard setLectures = {this.props.setLectures}/>
         </div>
     </div>
+  
   );
+      }
 }

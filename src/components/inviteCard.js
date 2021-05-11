@@ -36,7 +36,7 @@ export default function SimpleCard(props) {
         </Typography>
         <Typography align="left" >
         {props.streamid}
-        </Typography>x`
+        </Typography>
         <Typography variant="body2" component="p" align="left" style={{color:'#000'}}>
          {props._id}
         </Typography>

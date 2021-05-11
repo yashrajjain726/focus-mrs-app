@@ -63,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
 
 
  const LectureTab = (props)=>{
+   const {lectureList} = props;
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -80,18 +81,20 @@ const useStyles = makeStyles((theme) => ({
         <Tabs
           value={value}
           onChange={handleChange}
-          style={{}}
+          style={{backgroundColor:'#edeffa'}}
           variant="fullWidth"
+          
          
         >
-          <Tab label="Join Class" {...a11yProps(0)} />
-          <Tab label="Meeting Code" {...a11yProps(1)} />
+          <Tab label="Join Class" {...a11yProps(0)} style={{backgroundImage:"linear-gradient(180deg, #59b860, #01ab98)",margin:'2%',borderRadius:'20px',color:'#fff'}}/>
+          <Tab label="Meeting Code" {...a11yProps(1)}  style={{backgroundImage:"linear-gradient(180deg, #59b860, #01ab98)",margin:'2%',borderRadius:'20px',color:'#fff'}}/>
         </Tabs>
       </Paper>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
+        
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
            <Container style={{padding:'5% 0px 10px  0px',}}>
@@ -99,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
               You have been invited to :
             </Typography>
 
-            {props.lectureList.map((item)=>(
+            {lectureList.map((item)=>(
                 
                 <InviteCard _id={item._id} name={item.name} streamid={item.streamid}/>
             ))}
