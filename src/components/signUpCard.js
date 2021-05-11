@@ -4,8 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import ShopIcon from '@material-ui/icons/Shop';
 import { Typography,Checkbox  } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     right: "0%",
     bottom: "0%",
     borderRadius:'20px 20px 0 0',
-    height:'65vh'
+    height:'70vh'
+
 
   }
 }));
@@ -95,13 +94,10 @@ export default function RecipeReviewCard() {
       />
         <Typography style={{fontWeight:'bold',align:'left'}}>By signing up you agree to our <span style={{color:'#bddbdb'}}>conditions</span> and <span style={{color:'#bddbdb'}}>privacy policy</span></Typography>
        </div>
-        <Button size="large" style={{backgroundColor:'#fc357b',paddingRight:'20%',paddingLeft:'20%',marginTop:'2%',color:'white',width:'100%'}}>
+        <Button size="large" style={{backgroundImage:'linear-gradient(180deg, #01ab98, #59b860)',paddingRight:'20%',paddingLeft:'20%',marginTop:'2%',color:'white',width:'100%'}}>
           SIGN IN
         </Button>
  </CardContent>
-        <CardContent>
-      
-        </CardContent>  
     </Card>
   );
 }

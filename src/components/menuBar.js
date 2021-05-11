@@ -21,7 +21,7 @@ export default function ButtonAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundImage:'linear-gradient(180deg, #01ab98, #59b860)'}}>
         <Toolbar>
           <IconButton edge="start"  color="inherit" aria-label="menu">
             <MenuIcon />

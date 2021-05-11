@@ -27,24 +27,23 @@ const useStyles = makeStyles({
 
 export default function SimpleCard(props) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Paper className={classes.root} elevation={3}>
       <CardContent>
         <Typography className={classes.title} color="textPrimary" align="left">
-         {props.class}
+        {props.name}
         </Typography>
         <Typography align="left" >
-          {props.date}
-        </Typography>
+        {props.streamid}
+        </Typography>x`
         <Typography variant="body2" component="p" align="left" style={{color:'#000'}}>
-          {props.teacher}
+         {props._id}
         </Typography>
       </CardContent>
       <CardActions >
        {/* <a href="/advertising" style={{textDecoration:'none'}}> */}
-       <Button style={{align:"left",backgroundColor:'#047BD5',float:'left',width:'25%'}}>Join</Button>
+       <Button style={{align:"left",backgroundImage:'linear-gradient(180deg, #01ab98, #59b860)',float:'left',width:'25%'}}>Join</Button>
        {/* </a> */}
       </CardActions>
     </Paper>

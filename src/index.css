@@ -26,5 +26,16 @@ code {
   padding:2% 5% 2% 5%;
   font-size: 12px;
 }
+.signup-title{
+  left: 20px;
+  bottom: 70%;
+  position: absolute;
+
+}
+.login-title{
+  left: 20px;
+  bottom: 60%;
+  position: absolute;
+}
 
 

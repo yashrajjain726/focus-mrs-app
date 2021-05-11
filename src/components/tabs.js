@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import {Tabs,Container,Paper} from '@material-ui/core';
-import data from './data'
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -54,11 +52,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function FullWidthTabs() {
+
+// LectureTab.propTypes = {
+//   lectureList:PropTypes.array,
+// };
+// LectureTab.defaultProps = {
+//   lectureList:[],
+
+// }
+
+
+ const LectureTab = (props)=>{
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
+  console.log(props);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -66,15 +74,13 @@ export default function FullWidthTabs() {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-
   return (
     <div className={classes.root}>
       <Paper position="static" color="default" className={classes.paperContainer}>
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
+          style={{}}
           variant="fullWidth"
          
         >
@@ -93,8 +99,9 @@ export default function FullWidthTabs() {
               You have been invited to :
             </Typography>
 
-            {data.map((item)=>(
-                <InviteCard class={item.class} date={item.date} teacher={item.teacher}/>
+            {props.lectureList.map((item)=>(
+                
+                <InviteCard _id={item._id} name={item.name} streamid={item.streamid}/>
             ))}
 
             </Container>
@@ -106,3 +113,4 @@ export default function FullWidthTabs() {
     </div>
   );
 }
+export default LectureTab;
