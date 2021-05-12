@@ -39,7 +39,7 @@ code {
 }
 .login-card{
   flex-grow: 1;
-  position: "absolute";
+  position: absolute;
 
   left: 0%;
   right: 0%;
@@ -47,6 +47,16 @@ code {
   border-radius: 20px 20px 0 0;
   height: 60vh;
   padding: 5%;
+}
+
+.signup-card{
+  flex-grow: 1;
+  position:absolute;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  border-radius:20px 20px 0 0;
+  height:70vh;
 }
 
 

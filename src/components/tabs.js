@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
                 <Typography align="left" style={{color:'#000'}}>
               You have been invited to :
             </Typography>
-
+            {console.log.lectureList}
             {lectureList.docs.map((item)=>(
                 
                 <InviteCard _id={item._id} name={item.name} streamid={item.streamid}/>

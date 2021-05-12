@@ -1,103 +1,117 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { Typography,Checkbox  } from '@material-ui/core';
-
-const useStyles = makeStyles((theme) => ({
-  expand: {
-    transform: 'rotate(0deg)',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  root:{
-    flexGrow: 1,
-    position: "absolute",
-    left: "0%",
-    right: "0%",
-    bottom: "0%",
-    borderRadius:'20px 20px 0 0',
-    height:'70vh'
-
-
+import React from "react";
+import Card from "@material-ui/core/Card";
+import axios from 'axios';
+import { Redirect } from "react-router";
+export default class SignUpCard extends React.Component {
+  state={};
+  
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      email:this.email,
+      username:this.email,
+      given_name:this.firstName,
+      family_name:this.lastName,
+      password:this.password,
+      permission_level:"student"
+    };
+    console.log(data);
+    axios
+      .post("register", data)
+      .then((res) => {
+      
+        this.setState({ registered: true });
+      })
+      
+      .catch((err) => {
+        console.log(err);
+      });
+    
   }
-}));
-
-export default function RecipeReviewCard() {
-  const classes = useStyles();
-  const [checked, setChecked] = React.useState(true);
-
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
-  return (
-    <Card className={classes.root}>
-              <CardContent>
-
-<TextField
-     id="standard-full-width"
-     label="First Name"
-     style={{ margin: 8 }}
-     placeholder="Enter your First Name"
-     fullWidth
-     InputLabelProps={{
-       shrink: true,
-     }}
-   />
-   <TextField
-     id="standard-full-width"
-     label="Last Name"
-     style={{ margin: 8 }}
-     placeholder="Enter your Last Name"
-     fullWidth
-     InputLabelProps={{
-       shrink: true,
-     }}
-   />
-    <TextField
-          id="standard-full-width"
-          label="Email Address"
-          style={{ margin: 8 }}
-          placeholder="Enter your Email I'd"
-          fullWidth
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <TextField
-     id="standard-full-width"
-     label="Password"
-     style={{ margin: 8 }}
-     placeholder="Enter your Password"
-     fullWidth
-     InputLabelProps={{
-       shrink: true,
-     }}
-
-   />
-   <a>
-   <Typography align="right" style={{margin:'1%',color:'#000',fontWeight:'bold'}}>
-       Forgot Password ?
-   </Typography></a>
-   <div >
-       <Checkbox
-        checked={checked}
-        onChange={handleChange}
-        inputProps={{ 'aria-label': 'primary checkbox' }}
-       style={{float:'left',padding:'0px'}}
-      />
-        <Typography style={{fontWeight:'bold',align:'left'}}>By signing up you agree to our <span style={{color:'#bddbdb'}}>conditions</span> and <span style={{color:'#bddbdb'}}>privacy policy</span></Typography>
-       </div>
-        <Button size="large" style={{backgroundImage:'linear-gradient(180deg, #01ab98, #59b860)',paddingRight:'20%',paddingLeft:'20%',marginTop:'2%',color:'white',width:'100%'}}>
-          SIGN IN
-        </Button>
- </CardContent>
-    </Card>
-  );
+  render() {
+    if(this.state.registered)
+    {
+    return (
+      <Redirect to="/login"/>
+      
+    );
+          }
+          else{
+            return(
+              <Card className="signup-card">
+              <form onSubmit={this.handleSubmit}>
+                <div className="form-group m-3">
+                  <label style={{ float: "left" }}>First Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your First Name"
+                    onChange={(e) => (this.firstName = e.target.value)}
+                    required
+                  ></input>
+                </div>
+                <div className="form-group m-3">
+                  <label style={{ float: "left" }}>Last Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your Last Name"
+                    onChange={(e) => (this.lastName = e.target.value)}
+                    required
+                  ></input>
+                </div>
+                <div className="form-group m-3">
+                  <label style={{ float: "left" }}>Email Address</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter your Email Address"
+                    onChange={(e) => (this.email = e.target.value)}
+                    required
+                  ></input>
+                </div>
+                <div className="form-group m-3">
+                  <label style={{ float: "left" }}>Password</label>
+                  <input
+                    type="password"
+                    minlength="6"
+                    className="form-control"
+                    placeholder="Enter your password"
+                    onChange={(e) => (this.password = e.target.value)}
+                    required
+                  ></input>
+                </div>
+                <div className="form-check m-3">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckChecked"
+                    checked
+                  />
+                  <label
+                    className="form-check-label "
+                    for="flexCheckChecked"
+                    style={{ float: "left", fontWeight: "bold" }}
+                  >
+                    By signing up you agree to our <span> conditions</span> and{" "}
+                    <span style={{ color: "#01ab98" }}>privacy policy</span>
+                  </label>
+                </div>
+                <button
+                  className="btn btn-primary btn-block "
+                  style={{
+                    width: "80%",
+                    backgroundImage: "linear-gradient(180deg, #59b860, #01ab98)",
+                    border: "0px",
+                    marginTop: "5%",
+                  }}
+                >
+                  SIGN UP
+                </button>
+              </form>
+            </Card>
+            )
+          }
+  }
 }

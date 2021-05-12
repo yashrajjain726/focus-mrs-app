@@ -5,7 +5,7 @@ import LoginCard from "../components/loginCard";
 export default class LoginPage extends React.Component {
   render(){
   return (
-    <div style={{}}>
+    <div>
       <div
         style={{ padding: "0", height: "40vh",display:'flex',alignItems:'center',justifyContent:'center',backgroundImage:'linear-gradient(180deg, #01ab98, #59b860)'}}
       >
@@ -41,7 +41,7 @@ export default class LoginPage extends React.Component {
       <div style={{
           backgroundImage: "linear-gradient(180deg, #59b860, #01ab98)",
           height: "60vh"}}>
-            
+          {console.log("this.props.setLectures",this.props.setLectures)}
          <LoginCard setLectures ={this.props.setLectures}/>
         </div>
     </div>

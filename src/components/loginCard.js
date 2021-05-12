@@ -18,6 +18,7 @@ export default class LoginCard extends React.Component {
       .then((res) => {
         localStorage.setItem("token", res.data.id_token);
         this.setState({ loggedIn: true });
+        this.props.setLectures({});
       })
       
       .catch((err) => {
@@ -75,7 +76,7 @@ export default class LoginCard extends React.Component {
                 marginTop: "5%",
               }}
             >
-              Login
+              LOG IN
             </button>
             
           </form>

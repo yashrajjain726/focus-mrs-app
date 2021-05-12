@@ -1,8 +1,11 @@
 import React  from "react";
 import MenuBar from "../components/menuBar";
 import Tabs from "../components/tabs";
+
+import { Redirect } from 'react-router-dom';
 export default class Lectures extends React.Component {
   render() {
+    console.log(this.props.lectures,"reached to lectures")
     if(this.props.lectures)
     {
     return (
@@ -20,8 +23,8 @@ export default class Lectures extends React.Component {
     else{
       return(
         <div>
-          {console.log("lectures me lecture reaches",this.props.lectures)}
-          <p>Please Login Again</p>
+          {console.log("redirected from lectures")}
+         <Redirect to="/login"/>
         </div>
         
       )
