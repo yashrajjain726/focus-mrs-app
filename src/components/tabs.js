@@ -63,8 +63,8 @@ const useStyles = makeStyles((theme) => ({
 
 
  const LectureTab = (props)=>{
-   const {lectureList} = props;
-   console.log("lecturelist in tabs",lectureList);
+  const {lectureList} = props;
+  console.log("lecturelist in tabs",lectureList);
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
                 <Typography align="left" style={{color:'#000'}}>
               You have been invited to :
             </Typography>
-            {console.log.lectureList}
+            {"lecturelist map loaded",console.log.lectureList}
             {lectureList.docs.map((item)=>(
                 
                 <InviteCard _id={item._id} name={item.name} streamid={item.streamid}/>

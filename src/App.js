@@ -15,6 +15,7 @@ export default class App extends React.Component {
         console.log('componentdidmount')
         console.log(res.data,'res daata in  lecures')
         this.setLectures(res.data)
+        
       },
       (err) => {
         console.log(err);

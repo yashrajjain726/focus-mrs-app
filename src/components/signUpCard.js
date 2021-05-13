@@ -15,9 +15,12 @@ export default class SignUpCard extends React.Component {
       password:this.password,
       permission_level:"student"
     };
+    const headers ={
+      'Content-Type': 'application/json',
+    }
     console.log(data);
     axios
-      .post("register", data)
+    .post("register", data,{headers:headers})
       .then((res) => {
       
         this.setState({ registered: true });

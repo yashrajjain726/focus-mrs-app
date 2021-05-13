@@ -10,15 +10,21 @@ export default class LoginCard extends React.Component {
     const data = {
       username: this.username,
       password: this.password,
+
     };
+    const headers ={
+      'Content-Type': 'application/json',
+    }
 
     console.log(data);
     axios
-      .post("login", data)
+      .post("login", data,{headers:headers})
       .then((res) => {
         localStorage.setItem("token", res.data.id_token);
         this.setState({ loggedIn: true });
-        this.props.setLectures({});
+        // this.props.setLectures({res});
+        // console.log(this.props.setLectures);
+        
       })
       
       .catch((err) => {
