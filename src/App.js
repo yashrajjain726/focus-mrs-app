@@ -7,6 +7,7 @@ import SignUp from './pages/signUp'
 import React from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom'
+import ForgotPassword from './pages/forgotPassword'
 export default class App extends React.Component {
   state={};
   componentDidMount() {
@@ -45,6 +46,7 @@ export default class App extends React.Component {
             <Route exact path="/lectures" component={()=><Lectures lectures={this.state.lectures} setLectures={this.setLectures}/>}/>
 
             <Route exact path="/signup" component={SignUp}/>
+            <Route exact path="/forgot" component={ForgotPassword}/>
           </Switch>
         </Router>
     </div>

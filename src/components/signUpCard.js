@@ -90,7 +90,7 @@ export default class SignUpCard extends React.Component {
                     type="checkbox"
                     value=""
                     id="flexCheckChecked"
-                    checked
+                    required
                   />
                   <label
                     className="form-check-label "

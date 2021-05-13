@@ -58,5 +58,16 @@ code {
   border-radius:20px 20px 0 0;
   height:70vh;
 }
+.forgot-card{
+    flex-grow: 1;
+    position: absolute;
+  
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    border-radius: 20px 20px 0 0;
+    height: 60vh;
+    padding: 5%;
+}
 
 

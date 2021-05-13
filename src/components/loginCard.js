@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
+
 export default class LoginCard extends React.Component {
   state = {};
   // Update the login using the  API
@@ -56,14 +57,21 @@ export default class LoginCard extends React.Component {
                 placeholder="Enter your password"
                 onChange={(e) => (this.password = e.target.value)}
               ></input>
+              <p style={{float:'right',marginTop:'2%'}}>
+              <Link to={"/forgot"} style={{color:'#01ab98',textDecoration:'none',fontWeight:'bold'}}>Forgot Password ?</Link>
+              </p>
+
+
             </div>
+           
             <div className="form-check m-3">
               <input
                 className="form-check-input"
                 type="checkbox"
                 value=""
                 id="flexCheckChecked"
-                checked
+                style={{ float: "left"}}
+                
               />
               <label
                 className="form-check-label "
